@@ -14,7 +14,7 @@ from .serializers import UserSerializer
 User = get_user_model()
 
 
-@method_decorator(name='create', decorator=swagger_auto_schema(tags=['users']))
+@method_decorator(name="create", decorator=swagger_auto_schema(tags=["users"]))
 class UserCreateAPIView(CreateAPIView):
     """
     Создание пользователя.

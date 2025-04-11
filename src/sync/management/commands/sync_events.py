@@ -12,8 +12,12 @@ class Command(BaseCommand):
     help = "Синхронизация событий с сервера"
 
     def add_arguments(self, parser):
-        parser.add_argument("--date", type=str, help="Дата синхронизации в формате YYYY-MM-DD")
-        parser.add_argument("--all", action="store_true", help="Синхронизировать все события")
+        parser.add_argument(
+            "--date", type=str, help="Дата синхронизации в формате YYYY-MM-DD"
+        )
+        parser.add_argument(
+            "--all", action="store_true", help="Синхронизировать все события"
+        )
 
     def handle(self, *args, **options):
         sync_date = options.get("date", None)
@@ -32,7 +36,9 @@ class Command(BaseCommand):
     def fetch_url(self, url):
         response = requests.get(url)
         if response.status_code != 200:
-            self.stdout.write(self.style.ERROR("В ходе выполнения запроса произошла ошибка"))
+            self.stdout.write(
+                self.style.ERROR("В ходе выполнения запроса произошла ошибка")
+            )
             return None
         next_page = response.json().get("next")
         results = response.json().get("results")

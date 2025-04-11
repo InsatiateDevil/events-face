@@ -6,6 +6,7 @@ class User(AbstractUser):
     """
     Определение модели пользователя
     """
+
     username = models.CharField(verbose_name="Логин", max_length=100, unique=True)
 
     def __str__(self):

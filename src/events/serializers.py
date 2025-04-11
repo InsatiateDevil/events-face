@@ -4,7 +4,6 @@ from src.events.models import VenueEvent
 
 
 class VenueEventSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = VenueEvent
-        fields = '__all__'
+        fields = "__all__"
